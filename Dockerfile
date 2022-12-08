@@ -6,8 +6,6 @@ COPY package*.json ./
 
 RUN npm ci --only=production
 
-RUN pwd && ls -l
-
 COPY /dist .
 
 RUN ls -l
