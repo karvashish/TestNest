@@ -6,7 +6,7 @@ COPY package*.json ./
 
 RUN npm ci --only=production
 
-RUN ls -l .
+RUN ls -l /workspace/source
 
 COPY /dist .
 
