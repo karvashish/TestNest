@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: npm-test-pipeline-run
+spec:
+  pipelineRef:
+    name: npm-test-pipeline
+  workspaces:
+    - name: shared-workspace
+      persistentvolumeclaim:
+        claimName: npm-source-pvc
+    - name: docker-credentials
+      secret:
+        secretName: docker-credentials
