@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: test-route
+  namespace: node1
+  labels:
+    app.kubernetes.io/managed-by: Helm
+spec:
+  to:
+    kind: Service
+    name: node-test-service
+  tls: null
+  port:
+    targetPort: http

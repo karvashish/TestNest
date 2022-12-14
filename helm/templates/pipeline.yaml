@@ -67,7 +67,7 @@ spec:
     - name: build-push
       params:
         - name: IMAGE
-          value: docker.io/kartikeyavashishtha/test123:foobar
+          value: docker.io/kartikeyavashishtha/test123:latest
         - name: DOCKERFILE
           value: Dockerfile
       runAfter:

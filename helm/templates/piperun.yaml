@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: npm-test-pipeline-run
+  name: npm-test-pipeline-run-{{ randAlphaNum 5 | lower }}
 spec:
   pipelineRef:
     name: npm-test-pipeline
