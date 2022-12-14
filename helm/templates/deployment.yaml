@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-test
+  name: node-test-{{ randAlphaNum 5 | lower }}
 spec:
   replicas: 1 
   selector:
