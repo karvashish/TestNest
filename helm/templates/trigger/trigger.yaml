@@ -1,0 +1,10 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: Trigger
+metadata:
+  name: node-trigger
+spec:
+  serviceAccountName: pipeline
+  bindings:
+    - ref: node-app
+  template:
+    ref: node-app

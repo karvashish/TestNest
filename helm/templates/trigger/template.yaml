@@ -1,0 +1,22 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: node-app
+spec:
+
+  resourcetemplates:
+  - apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      generateName: npm-test-pipeline-triggered-run-
+    spec:
+      serviceAccountName: pipeline
+      pipelineRef:
+        name: npm-test-pipeline
+      workspaces:
+        - name: shared-workspace
+          persistentvolumeclaim:
+            claimName: npm-source-pvc           
+        - name: docker-credentials
+          secret:
+            secretName: docker-credentials
