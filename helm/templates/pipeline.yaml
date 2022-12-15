@@ -80,6 +80,19 @@ spec:
           workspace: shared-workspace
         - name: dockerconfig
           workspace: docker-credentials
+    - name: update-deployment
+      taskRef:
+        kind: ClusterTask
+        name: update-deployment
+      params:
+      - name: deployment
+        value: node-test
+      - name: IMAGE
+        value: docker.io/kartikeyavashishtha/test123:latest
+      - name: pod
+        value: node-test-pod
+      runAfter:
+      - build-push
   workspaces:
     - name: shared-workspace
     - name: docker-credentials
