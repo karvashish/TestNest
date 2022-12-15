@@ -1,0 +1,20 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: test123
+  name: test123
+  namespace: node1
+spec:
+  lookupPolicy:
+    local: false
+
+  tags:
+    - name: latest
+      from:
+        kind: DockerImage
+        name: docker.io/kartikeyavashishtha/test123:latest
+      importPolicy:
+        scheduled: true
+      referencePolicy:
+        type: Source
